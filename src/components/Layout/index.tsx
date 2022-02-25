@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import { FC, ReactNode } from "react";
 import Menu from "../Menu";
 import "./styles.css";
 
 type AppProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const Layout: FC<AppProps> = ({ children }) => {
