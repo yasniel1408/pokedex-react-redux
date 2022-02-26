@@ -20,8 +20,9 @@ const Layout: FC<AppProps> = ({ children }) => {
   return (
     <div>
       <Menu />
+      <div className="Layout-content">{children}</div>
       {errorMessage && (
-        <div className="wrapper">
+        <div className="errorWrapper wrapper">
           <Message
             onDismiss={handleDismiss}
             content={errorMessage}
@@ -29,7 +30,6 @@ const Layout: FC<AppProps> = ({ children }) => {
           />
         </div>
       )}
-      <div className="Layout-content">{children}</div>
     </div>
   );
 };

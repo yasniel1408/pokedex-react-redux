@@ -3,6 +3,7 @@ import {
   GET_POKEMONS_WITH_DETAILS,
   SET_ERROR,
   SET_POKEMONS,
+  TOGGLE_LOADER,
 } from "./types";
 
 export const setPokemons = (payload: any) => ({
@@ -17,6 +18,10 @@ export const setError = (payload: any) => ({
 
 export const clearError = () => ({
   type: CLEAR_ERROR,
+});
+
+export const toggleLoader = () => ({
+  type: TOGGLE_LOADER,
 });
 
 export const fetchPokemonDetails = () => ({
