@@ -4,10 +4,10 @@ const initialState = {
   error: "",
 };
 
-export const pokemonReducer = (state = initialState, action: any) => {
+const pokemonReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_POKEMONS:
-      return { ...state, list: action.payload };
+      return { ...state, pokemons: action.payload };
     case SET_ERROR:
       return { ...state, error: action.payload.message };
     case CLEAR_ERROR:
@@ -16,4 +16,5 @@ export const pokemonReducer = (state = initialState, action: any) => {
       return state;
   }
 };
+
 export default pokemonReducer;

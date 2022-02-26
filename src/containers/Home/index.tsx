@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import getPokemons from "../../api/getPokemons";
 import { setPokemons } from "../../redux/actions/actions";
+import axios from "axios";
 
 function Home() {
   const dispatch = useDispatch();
@@ -13,7 +14,11 @@ function Home() {
   useEffect(() => {
     const loadPokemons = async () => {
       let result = await getPokemons();
-      dispatch(setPokemons(result.data.results));
+      dispatch(
+        setPokemons(
+          result.data.results.map((pokemon: any) => axios.get(pokemon.url))
+        )
+      );
     };
     loadPokemons();
   }, [dispatch]);
