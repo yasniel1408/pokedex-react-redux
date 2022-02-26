@@ -5,14 +5,13 @@ const getPokemons = (limit = 151) => {
   return getPokeApi;
 };
 
-export const getPokemonsWithDetailsAPI = () => async (dispatch: any) => {
+export const getPokemonsWithDetailsAPI = async (): Promise<any[]> => {
   let {
     data: { results },
   } = await getPokemons();
 
-  const data = await Promise.all(
+  const result = await Promise.all(
     results.map((pokemon: any) => axiosInstance.get(pokemon.url))
   );
-  console.log(data);
-  return data;
+  return result;
 };
