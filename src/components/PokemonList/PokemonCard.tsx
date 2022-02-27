@@ -22,8 +22,6 @@ const PokemonCard: FC<{
     dispatch(setFavorite(id));
   };
 
-  const color = !!favorite ? FAV_COLOR : DEFAULT_FAV_COLOR;
-
   return (
     <Grid.Column mobile={16} tablet={8} computer={4}>
       <div className="PokemonCard">
@@ -31,7 +29,10 @@ const PokemonCard: FC<{
           className="PokemonCard-favorite"
           onClick={() => handleFavorite()}
         >
-          <Icon name="favorite" color={color} />
+          <Icon
+            name="favorite"
+            color={!!favorite ? FAV_COLOR : DEFAULT_FAV_COLOR}
+          />
         </button>
         <Image centered src={front_default} size="small" />
         <h2 className="PokemonCard-title">{name}</h2>

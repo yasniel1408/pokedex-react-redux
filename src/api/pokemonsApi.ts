@@ -13,5 +13,12 @@ export const getPokemonsWithDetailsAPI = async (): Promise<any[]> => {
   const result = await Promise.all(
     results.map((pokemon: any) => axiosInstance.get(pokemon.url))
   );
-  return result.map((pokemon: any) => pokemon.data);
+  return result
+    .map((pokemon: any) => pokemon.data)
+    .map((value: any) => {
+      return {
+        ...value,
+        favorite: false,
+      };
+    });
 };
