@@ -9,8 +9,10 @@ const PokemonList: FC<{}> = () => {
   return (
     <div className="wrapper">
       <Grid>
-        {pokemons.map((pokemon: any, index: number) => {
-          return <PokemonCard {...pokemon} key={`pokemon-${index}`} />;
+        {pokemons.map((pokemon: any) => {
+          return (
+            <PokemonCard {...pokemon} key={`pokemon-${pokemon.id}`} />
+          );
         })}
       </Grid>
     </div>

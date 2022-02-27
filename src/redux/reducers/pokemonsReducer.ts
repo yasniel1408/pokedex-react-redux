@@ -23,7 +23,7 @@ const pokemonReducer = (state = initialState, action: any) => {
       return { ...state, loading: !state.loading };
     case SET_FAVORITE:
       const newArrPokes: any[] = state.pokemons;
-      const index = newArrPokes.findIndex(({ id }) => id === action.payload.id);
+      const index = newArrPokes.findIndex(({ id }) => id === action.payload);
       if (index >= 0) {
         newArrPokes[index].favorite = !newArrPokes[index].favorite;
       }

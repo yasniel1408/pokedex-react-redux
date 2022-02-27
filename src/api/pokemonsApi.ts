@@ -1,6 +1,6 @@
 import axiosInstance, { API } from "./conf";
 
-const getPokemons = (limit = 151) => {
+const getPokemons = (limit = 10) => {
   const getPokeApi = axiosInstance.get(`${API}pokemon?limit=${limit}`);
   return getPokeApi;
 };
@@ -13,5 +13,5 @@ export const getPokemonsWithDetailsAPI = async (): Promise<any[]> => {
   const result = await Promise.all(
     results.map((pokemon: any) => axiosInstance.get(pokemon.url))
   );
-  return result;
+  return result.map((pokemon: any) => pokemon.data);
 };
