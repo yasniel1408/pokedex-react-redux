@@ -1,6 +1,7 @@
 import {
   CLEAR_ERROR,
   SET_ERROR,
+  SET_FAVORITE,
   SET_POKEMONS,
   TOGGLE_LOADER,
 } from "./../actions/types";
@@ -20,6 +21,13 @@ const pokemonReducer = (state = initialState, action: any) => {
       return { ...state, error: "" };
     case TOGGLE_LOADER:
       return { ...state, loading: !state.loading };
+    case SET_FAVORITE:
+      const newArrPokes: any[] = state.pokemons;
+      const index = newArrPokes.findIndex(({ id }) => id === action.payload.id);
+      if (index >= 0) {
+        newArrPokes[index].favorite = !newArrPokes[index].favorite;
+      }
+      return { ...state, pokemons: newArrPokes };
     default:
       return state;
   }
