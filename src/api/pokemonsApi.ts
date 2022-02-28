@@ -1,6 +1,6 @@
 import axiosInstance, { API } from "./conf";
 
-const getPokemons = (limit = 10) => {
+const getPokemons = (limit = 100) => {
   const getPokeApi = axiosInstance.get(`${API}pokemon?limit=${limit}`);
   return getPokeApi;
 };

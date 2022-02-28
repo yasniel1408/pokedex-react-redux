@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <Searcher />
+      {/* <Searcher /> */}
       {loading && <Loader />}
       <PokemonList />
     </div>
