@@ -5,7 +5,10 @@ import PokemonCard from "./PokemonCard";
 import "./styles.css";
 
 const PokemonList: FC<{}> = () => {
-  const pokemons = useSelector(({ pokemons }: { pokemons: [] }) => pokemons);
+  const pokemons = useSelector(
+    ({ pokemonReducer }: any) => pokemonReducer.pokemons
+  );
+
   return (
     <div className="wrapper">
       <Grid>
