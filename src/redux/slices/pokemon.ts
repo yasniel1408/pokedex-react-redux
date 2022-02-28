@@ -1,4 +1,3 @@
-import { setError, toggleLoader } from "./../actions/actions";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getPokemonsWithDetailsAPI } from "../../api/pokemonsApi";
 
@@ -12,13 +11,13 @@ export const fetchPokemons = createAsyncThunk(
   "pokemon/fetchPokemons",
   async (_, { dispatch }) => {
     try {
-      dispatch(toggleLoader());
+      dispatch(toggleLoading());
       const pokemonsWithDetails = await getPokemonsWithDetailsAPI();
       dispatch(setPokemons(pokemonsWithDetails));
-      dispatch(toggleLoader());
+      dispatch(toggleLoading());
     } catch (err) {
       dispatch(setError({ error: err, message: "Error fetching pokemons" }));
-      dispatch(toggleLoader());
+      dispatch(toggleLoading());
     }
   }
 );
@@ -51,6 +50,7 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { setPokemons, setFavorite } = pokemonSlice.actions;
+export const { setPokemons, setFavorite, setError, clearError, toggleLoading } =
+  pokemonSlice.actions;
 
 export default pokemonSlice.reducer;
