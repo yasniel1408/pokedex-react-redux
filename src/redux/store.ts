@@ -7,13 +7,13 @@ import createSagaMiddleware from "redux-saga";
 import pokemonSaga from "./saga/pokemonSaga";
 import thunk from "redux-thunk";
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 export const store = createStore(
   rootReducers,
   // composeWithDevTools(applyMiddleware(thunk, logActions, reportError))
   // composeWithDevTools(applyMiddleware(sagaMiddleware, logActions, reportError))
-  composeWithDevTools(applyMiddleware(logActions, reportError)) //con toolkit
+  composeWithDevTools(applyMiddleware(thunk, logActions, reportError)) //con toolkit
 );
 
-sagaMiddleware.run(pokemonSaga);
+// sagaMiddleware.run(pokemonSaga);

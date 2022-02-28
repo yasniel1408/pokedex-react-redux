@@ -1,7 +1,7 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Image, Label, Divider, Grid, Icon } from "semantic-ui-react";
-import { setFavorite } from "../../redux/actions/actions";
+import { setFavorite } from "../../redux/slices/pokemon";
 import {
   DEFAULT_FAV_COLOR,
   FAV_COLOR,
@@ -28,10 +28,6 @@ const PokemonCard: FC<AppProps> = ({
   const handleFavorite = () => {
     dispatch(setFavorite(id));
   };
-
-  useEffect(() => {
-    console.log(favorite);
-  }, [favorite]);
 
   return (
     <Grid.Column mobile={16} tablet={8} computer={4}>
