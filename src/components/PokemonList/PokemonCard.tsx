@@ -8,19 +8,30 @@ import {
   MAIN_COLOR,
 } from "../../utils/constants";
 import "./styles.css";
-
-const PokemonCard: FC<{
+type AppProps = {
   name: string;
   id: number;
   favorite: boolean;
   types: [];
   sprites: any;
-}> = ({ name, id, sprites: { front_default }, types, favorite }) => {
+};
+
+const PokemonCard: FC<AppProps> = ({
+  name,
+  id,
+  sprites: { front_default },
+  types,
+  favorite,
+}) => {
   const dispatch = useDispatch();
 
   const handleFavorite = () => {
     dispatch(setFavorite(id));
   };
+
+  useEffect(() => {
+    console.log(favorite);
+  }, [favorite]);
 
   return (
     <Grid.Column mobile={16} tablet={8} computer={4}>

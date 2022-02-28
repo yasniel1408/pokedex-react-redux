@@ -22,7 +22,8 @@ const pokemonReducer = (state = initialState, action: any) => {
     case TOGGLE_LOADER:
       return { ...state, loading: !state.loading };
     case SET_FAVORITE:
-      const newArrPokes: any[] = state.pokemons;
+      //si no lo copiamos no funciona el reducer ya que redux no se va a efectuar el renderizado de los favoritos
+      const newArrPokes: any[] = [...state.pokemons];
       const index = newArrPokes.findIndex(({ id }) => id === action.payload);
       if (index >= 0) {
         newArrPokes[index].favorite = !newArrPokes[index].favorite;

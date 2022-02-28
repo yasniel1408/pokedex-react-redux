@@ -9,11 +9,9 @@ const PokemonList: FC<{}> = () => {
   return (
     <div className="wrapper">
       <Grid>
-        {pokemons.map((pokemon: any) => {
-          return (
-            <PokemonCard {...pokemon} key={`pokemon-${pokemon.id}`} />
-          );
-        })}
+        {pokemons.map((pokemon: any) => (
+          <PokemonCard {...pokemon} key={pokemon.id} />
+        ))}
       </Grid>
     </div>
   );
